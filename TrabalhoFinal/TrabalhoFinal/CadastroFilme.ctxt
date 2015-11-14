@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=CadastroFilme()
+comment1.params=
+comment1.target=int\ getTamanho()
+comment2.params=f
+comment2.target=boolean\ adicionar(Filme)
+comment3.params=titulo\ ano\ genero\ mediaindicador
+comment3.target=boolean\ adicionar(java.lang.String,\ int,\ java.lang.String,\ double)
+numComments=4

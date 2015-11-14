@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=titulo\ ano\ genero\ mediaindicador
+comment0.target=Filme(java.lang.String,\ int,\ java.lang.String,\ double)
+comment1.params=
+comment1.target=java.lang.String\ getTitulo()
+comment2.params=
+comment2.target=int\ getAno()
+comment3.params=
+comment3.target=java.lang.String\ getGenero()
+comment4.params=
+comment4.target=double\ getMediaindicador()
+comment5.params=titulo
+comment5.target=void\ setTitulo(java.lang.String)
+comment6.params=ano
+comment6.target=void\ setAno(int)
+comment7.params=genero
+comment7.target=void\ setGenero(java.lang.String)
+comment8.params=mediaindicador
+comment8.target=void\ setMediaindicador(double)
+numComments=9

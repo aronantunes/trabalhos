@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=CadastroPessoa()
+comment1.params=
+comment1.target=int\ getTamanho()
+comment2.params=p
+comment2.target=boolean\ adicionar(Pessoa)
+comment3.params=nome\ email\ sexo\ idade
+comment3.target=boolean\ adicionar(java.lang.String,\ java.lang.String,\ char,\ byte)
+numComments=4
