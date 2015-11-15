@@ -1,0 +1,12 @@
+import java.util.ArrayList;
+
+
+public class CadastroAvaliacao {
+
+	public static ArrayList<Avaliacao> lista;
+	
+	public CadastroAvaliacao() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
