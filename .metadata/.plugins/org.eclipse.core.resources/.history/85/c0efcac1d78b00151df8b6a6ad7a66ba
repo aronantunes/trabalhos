@@ -1,0 +1,17 @@
+
+public class Tags {
+	public ArrayList<Filme> listaFilme; //Uma tag pode ter vários filmes
+	public String tagNome;
+	
+	public Tags(String nome, Filme f){
+		this.setTagNome(nome);
+		this.setFilme(f);
+	}
+
+	private void setTagNome(String nome) {
+		
+		
+	}
+	
+	
+}

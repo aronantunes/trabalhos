@@ -4,7 +4,7 @@ public class CadastroPessoa {
 	public static ArrayList<Pessoa> lista;
 	
 	public CadastroPessoa() {
-		lista = new ArrayList<>();
+		//lista = new ArrayList<>();
 	}
 	public int getTamanho(){
 		return lista.size();

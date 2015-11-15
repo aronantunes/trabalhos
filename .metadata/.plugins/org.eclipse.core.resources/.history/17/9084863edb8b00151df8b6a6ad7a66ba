@@ -1,0 +1,11 @@
+import java.util.ArrayList;
+
+
+public class CadastroTag {
+	
+	public static ArrayList<Tags> listaTag;
+	
+	public CadastroTag(){
+		listaTag = new ArrayList<>();
+	}
+}
