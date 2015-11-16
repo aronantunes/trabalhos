@@ -5,26 +5,29 @@ public class CadastroFilme {
 	
 	
 	public CadastroFilme() {
-		//lista = new ArrayList<Filme>();
+		lista = new ArrayList<Filme>();
 	}
 	
 	public boolean add(Filme f){
-		boolean exist = false;
-		for(int i = 0; i < lista.size(); i++){
-			if(lista.get(i).equals(f))
-				exist = true;
-		}
-		
-		if(exist)
-			return false;
-		else{
+		if(lista.isEmpty()){
 			lista.add(f);
 			return true;
+		}else{
+			if(lista.contains(f))
+				return false;
+			else{
+				lista.add(f);
+				return true;
+			}
 		}
 	}
 	
 	public int getTamanho(){
 		return lista.size();
+	}
+	
+	public static ArrayList<Filme> getLista(){
+		return lista;
 	}
 	
 	public Filme getFilmeTitulo(String titulo){

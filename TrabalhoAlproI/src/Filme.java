@@ -10,11 +10,12 @@ public class Filme {
 	private ArrayList<Avaliacao> listaAvaliacoes;
 
 	public Filme(String titulo, int ano, String genero) {
+		this.listaTag = new ArrayList<>();
+		this.listaAvaliacoes = new ArrayList<>();
 		this.titulo = titulo;
 		this.ano = ano;
 		this.genero = genero;
-		this.listaTag = new ArrayList<>();
-		this.listaAvaliacoes = new ArrayList<>();
+	
 	}
 
 	public boolean setAvaliacao(Avaliacao a) {

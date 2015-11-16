@@ -9,10 +9,18 @@ public class CadastroAvaliacao {
 	}
 
 	public boolean add(Avaliacao a) {
-		if (!lista.contains(a)) {
+		if(lista.isEmpty()){
 			lista.add(a);
+			return true;
+		}else{
+			if (lista.contains(a)) {
+				return false;
+			}else{
+				lista.add(a);
+				return true;
+			}
 		}
-		return false;
+		
 	}
 
 	

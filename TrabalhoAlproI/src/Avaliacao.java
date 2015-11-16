@@ -12,11 +12,13 @@ public class Avaliacao {
  
  
 	public Avaliacao(Pessoa p, Filme f, int n, ArrayList<Tags> t, Date data) {
+		tags = new ArrayList<>();
 		this.setPessoa(p);
 		this.setFilme(f);
 		this.setNota(n);
 		this.setTags(t);
 		this.setDataHora(data);
+		
 	}
 	
 	public void setDataHora(Date data) {
@@ -72,9 +74,14 @@ public class Avaliacao {
 	}
 	
 	public void setTags(ArrayList<Tags> t){
-		for(int i = 0; i < t.size(); i++){
-			tags.add(t.get(i));
+		System.out.println(t.size());
+		if(!t.isEmpty()){
+			for(int i = 0; i < t.size(); i++){
+				tags.add(t.get(i));
+			}
 		}
+			
+		
 	}
 	
 	public ArrayList<Tags> getTags(){

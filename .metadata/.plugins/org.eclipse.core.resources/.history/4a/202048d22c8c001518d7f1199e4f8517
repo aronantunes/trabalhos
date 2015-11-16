@@ -1,0 +1,140 @@
+import java.io.ObjectInputStream.GetField;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
+
+
+public class App {
+	
+	private static Scanner teclado = new Scanner(System.in);
+	private static CadastroPessoa cadastroP = new CadastroPessoa();
+	private static CadastroFilme cadastroF = new CadastroFilme();
+	private static CadastroTag cadastroT = new CadastroTag();
+	private static CadastroAvaliacao cadastroA = new CadastroAvaliacao();
+	
+	public static void main(String[] args){
+		//Avaliacao(Pessoa p, Filme f, int n, ArrayList<Tags> t, Date data)
+		//Tag(String nome, Filme f)
+		//Pessoa(String nome, String email, char sexo, byte idade)
+		//Filme(String titulo, int ano, String genero)
+		Filme f = new Filme("R",2015,"Comedia");
+		Tags t = new Tags("divertido",f);
+		Tags t1 = new Tags("f",f);
+		Tags t2 = new Tags("d",f);
+		Tags t3 = new Tags("di",f);
+		Tags t4 = new Tags("div",f);
+		Tags t5 = new Tags("dive",f);
+		cadastroT.add(t);
+		cadastroT.add(t1);
+		cadastroT.add(t2);
+		cadastroT.add(t3);
+		cadastroT.add(t4);
+		cadastroT.add(t5);
+		Integer idade = 19;
+		byte i = idade.byteValue();
+		Pessoa p = new Pessoa("Rafa", "asdas", 'M', i);
+		cadastroP.add(p);
+		ArrayList<Tags> tss = new ArrayList<>();
+		if(tss.add(t))
+			System.out.println("Deu certo");
+		tss.add(t1);
+		System.out.println(tss.toString());
+		Date d = new Date();
+		cadastroA.add(new Avaliacao(p,f,2,tss,d));
+		//menu();
+	}
+
+	public static void menu() {
+		
+		int op;
+		do{
+			System.out.println("1 - Cadastro Pessoa");
+			System.out.println("2 - Cadastro Filme");
+			System.out.println("3 - Cadastro Avaliacao");
+			System.out.println("4 - Filme com melhor Avaliação");
+			System.out.println("5 - Filmes com determinad Tag");
+			System.out.println("6 - Filmes com determinada Tag e Gênero");
+			System.out.println("7 - Pessoa que mais avaliou Filme;");
+			System.out.println("8 - Ocorrências da Tag");
+			System.out.println("0 - Sair");
+			op = teclado.nextInt();
+			
+			switch(op){
+				case 1:
+					cadastroDePessoa();
+					break;
+				case 2:
+					cadastroDeFilme();
+					break;
+				case 3:
+					cadastroDeAvaliacao();
+					break;
+			}
+		}while(op!=0);
+	}
+	
+	public static void cadastroDePessoa(){
+		
+		System.out.println("Informe o Nome: ");
+		String nome = teclado.next();
+		System.out.println("Informe a Idade: ");
+		Integer idade = teclado.nextInt();
+		System.out.println("Informe o Email: ");
+		String email = teclado.next();
+		System.out.println("Informe o Sexo(M/F): ");
+		String sexo = teclado.next();
+		char[] s = sexo.toCharArray();
+		char sex = s[0];
+		byte idadeP = idade.byteValue();
+		
+		if(cadastroP.add(new Pessoa(nome, email, sex, idadeP)))
+			System.out.println("Cadastro efetuado com sucesso");
+	}
+	
+	public static void cadastroDeFilme(){
+		System.out.println("Informe o Titulo: ");
+		String titulo = teclado.next();
+		System.out.println("Informe a ano: ");
+		int ano = teclado.nextInt();
+		System.out.println("Informe o Gênero: ");
+		String genero = teclado.next();
+		if(cadastroF.add(new Filme(titulo,ano,genero)));
+			System.out.println("Cadastro efetuado com sucesso");
+	}
+	
+	public static void cadastroDeAvaliacao(){
+		//Avaliacao(Pessoa p, Filme f, int n, ArrayList<Tags> t, Date data)
+		//Tag(String nome, Filme f)
+		//Pessoa(String nome, String email, char sexo, byte idade)
+		//Filme(String titulo, int ano, String genero)
+		
+		System.out.println("Informe o seu nome: ");
+		String nome = teclado.next();
+		Pessoa p = cadastroP.getPessoa(nome);
+		
+		System.out.println("Informe o titulo do Filme: ");
+		String tituloFilme = teclado.next();
+		Filme f = cadastroF.getFilmeTitulo(tituloFilme);
+		
+		System.out.println("Informe as tags: (5 tags por vez)");
+		String text = "";
+	
+		ArrayList<Tags> t = new ArrayList<>();
+		
+		for(int i = 0; i < 5; i++){	
+			text = teclado.next();
+			if(t.add(new Tags(text,f)))
+				System.out.println("Cadastrado");
+		}
+		
+		System.out.println("Informe a nota: ");
+		int nota = teclado.nextInt();
+		
+		Date data = new Date();
+		
+		if(cadastroA.add(new Avaliacao(p,f,nota,t,data)))
+			System.out.println("Cadastrado com sucesso");
+		
+	}
+}

@@ -1,0 +1,125 @@
+import java.util.ArrayList;
+import java.util.Date;
+
+
+public class Avaliacao {
+	 private Pessoa pessoa;
+	 private Filme filme;
+	 private int nota;
+	 private Date dataHora;
+	 private ArrayList<Tags> tags;
+ 
+ 
+ 
+	public Avaliacao(Pessoa p, Filme f, int n, ArrayList<Tags> t, Date data) {
+		this.setPessoa(p);
+		this.setFilme(f);
+		this.setNota(n);
+		this.setTags(t);
+		this.setDataHora(data);
+		tags = new ArrayList<>();
+	}
+	
+	public void setDataHora(Date data) {
+		this.dataHora = data;
+		
+	}
+	
+	public Date getDataHora(){
+		return dataHora;
+	}
+
+	public void setPessoa(Pessoa p){
+		boolean exist = false;
+		ArrayList<Pessoa> l = CadastroPessoa.lista;
+		for(int i = 0; i < l.size(); i++){
+			if(l.get(i).equals(p))
+				exist = true;
+		}
+		if(!exist)
+			this.pessoa = p;
+	}
+	
+	public Pessoa getPessoa(){
+		return pessoa;
+	}
+	
+	public void setFilme(Filme f){
+		boolean exist = false;
+		ArrayList<Filme> l = CadastroFilme.lista;
+		for(int i = 0; i < l.size(); i++){
+			if(l.get(i).equals(f))
+				exist = true;
+		}
+		if(!exist)
+			this.filme = f;
+	}
+	
+	public Filme getFilme(){
+		return filme;
+	}
+		
+	public boolean setNota(int n){
+		if(n <= 0 || n > 5){
+			return false;
+		}else{
+			this.nota = n;
+			return true;
+		}
+	}
+	
+	public int getNota(){
+		return nota;
+	}
+	
+	public void setTags(ArrayList<Tags> t){
+		if(tags.isEmpty()){
+			tags.addAll(t);
+		}else{
+			tags.addAll(t);
+		}
+		
+	}
+	
+	public ArrayList<Tags> getTags(){
+		return tags;
+	}
+	
+	public String toString(){
+		String msg = "";
+		Pessoa p = this.getPessoa();
+		Filme f = this.getFilme();
+		int nota = this.getNota();
+		ArrayList<Tags> t = this.getTags();
+		String notaS = "";
+		switch(nota){
+			case 1:
+				notaS = "Detestei";
+				break;
+			case 2:
+				notaS = "Não gostei";
+				break;
+			case 3:
+				notaS = "Gostei";
+				break;
+			case 4:
+				notaS = "Gostei Muito";
+				break;
+			case 5:
+				notaS = "Adorei";
+				break;
+		}
+		
+		msg += "Nome do Avaliador: " + p.getNome();
+		msg += "\nFilme: " + f.getTitulo();
+		msg += "\nNota: " + notaS + "(" + nota + ")\n";
+		msg += "Tags: ";
+		for(int i = 0; i < t.size(); i++){
+			msg += t.get(i) + " ";
+		}
+		
+		return msg;
+	}
+	
+
+}

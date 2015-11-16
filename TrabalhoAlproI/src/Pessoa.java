@@ -9,11 +9,12 @@ public class Pessoa {
 	private ArrayList<Avaliacao> listaAvaliacoes;
 
 	public Pessoa(String nome, String email, char sexo, byte idade) {
+		this.listaAvaliacoes = new ArrayList<>();
 		this.nome = nome;
 		this.email = email;
 		this.sexo = sexo;
 		this.idade = idade;
-		this.listaAvaliacoes = new ArrayList<>();
+		
 
 	}
 

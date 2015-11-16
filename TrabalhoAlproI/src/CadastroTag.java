@@ -47,9 +47,15 @@ public class CadastroTag {
 		return null;
 	}
 	
-	public ArrayList<Filme> getFilmesPorTag(Tags tag){
-		if(listaTag.contains(tag)){
-			return getTag(tag).getFilmes();
+	public ArrayList<Filme> getFilmesPorTag(String tag){
+		if(listaTag.isEmpty()){
+			return null;
+		}else{
+			for(int i = 0; i < listaTag.size(); i++){
+				if(listaTag.get(i).getNome().equals(tag)){
+					return listaTag.get(i).getFilmes();
+				}
+			}
 		}
 		
 		return null;
