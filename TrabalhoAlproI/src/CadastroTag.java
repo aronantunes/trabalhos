@@ -54,4 +54,18 @@ public class CadastroTag {
 		
 		return null;
 	}
+	
+	public int getOcorrenciasTag(String tag){
+		if(listaTag.isEmpty()){
+			return 0;
+		}else{
+			for(int i = 0; i < listaTag.size(); i++){
+				if(listaTag.get(i).getNome().equals(tag)){
+					return listaTag.get(i).getTotalFilmes();
+				}
+			}
+		}
+		
+		return 0;
+	}
 }

@@ -48,7 +48,10 @@ public class Tags {
 	public ArrayList<Filme> getFilmes(){
 		return listaFilme;
 	}
-
+	
+	public int getTotalFilmes(){
+		return listaFilme.size();
+	}
 	private void setTagNome(String nome) {
 		this.tagNome = nome;
 		

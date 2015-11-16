@@ -7,11 +7,11 @@ public class Avaliacao {
 	 private Filme filme;
 	 private int nota;
 	 private Date dataHora;
-	 private ArrayList<String> tags;
+	 private ArrayList<Tags> tags;
  
  
  
-	public Avaliacao(Pessoa p, Filme f, int n, ArrayList<String> t, Date data) {
+	public Avaliacao(Pessoa p, Filme f, int n, ArrayList<Tags> t, Date data) {
 		this.setPessoa(p);
 		this.setFilme(f);
 		this.setNota(n);
@@ -71,13 +71,13 @@ public class Avaliacao {
 		return nota;
 	}
 	
-	public void setTags(ArrayList<String> t){
+	public void setTags(ArrayList<Tags> t){
 		for(int i = 0; i < t.size(); i++){
 			tags.add(t.get(i));
 		}
 	}
 	
-	public ArrayList<String> getTags(){
+	public ArrayList<Tags> getTags(){
 		return tags;
 	}
 	
@@ -86,7 +86,7 @@ public class Avaliacao {
 		Pessoa p = this.getPessoa();
 		Filme f = this.getFilme();
 		int nota = this.getNota();
-		ArrayList<String> t = this.getTags();
+		ArrayList<Tags> t = this.getTags();
 		String notaS = "";
 		switch(nota){
 			case 1:

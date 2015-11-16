@@ -77,5 +77,21 @@ public class CadastroFilme {
 		return f.get(0);
 	}
 	
+	public ArrayList<Filme> getFilmeByGeneroETag(String genero, String tag){
+		ArrayList<Filme> filmeByGeneroETag = new ArrayList<>();
+		ArrayList<String> tags;
+		if(lista.isEmpty()){
+			return null;
+		}else{
+			for(int i = 0; i < lista.size(); i++){
+				tags = lista.get(i).getTagsNome();
+				if(lista.get(i).getGenero().equals(genero) && tags.contains(tag)){
+					filmeByGeneroETag.add(lista.get(i));
+				}
+			}
+		}
+		return filmeByGeneroETag;
+	}
+	
 	
 }

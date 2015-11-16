@@ -52,7 +52,10 @@ public class Pessoa {
 	public void setAvaliacao(Avaliacao a){
 		listaAvaliacoes.add(a);
 	}
-
+	
+	public int getTotalAvalicoes(){
+		return listaAvaliacoes.size();
+	}
 	public String toString() {
 		return (" \nNome: " + nome + "\nEmail: " + email + "\nSexo: " + sexo
 				+ " \nIdade: " + idade);
