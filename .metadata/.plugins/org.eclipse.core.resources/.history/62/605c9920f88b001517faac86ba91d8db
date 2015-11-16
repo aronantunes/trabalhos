@@ -35,23 +35,4 @@ public class CadastroTag {
 		}
 		return false;
 	}
-	
-	public Tags getTag(Tags t){
-		if(listaTag.contains(t)){
-			for(int i = 0; i < listaTag.size();i++){
-				if(listaTag.get(i).equals(t)){
-					return listaTag.get(i);
-				}
-			}
-		}
-		return null;
-	}
-	
-	public ArrayList<Filme> getFilmesPorTag(Tags tag){
-		if(listaTag.contains(tag)){
-			return getTag(tag).getFilmes();
-		}
-		
-		return null;
-	}
 }

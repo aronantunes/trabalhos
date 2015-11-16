@@ -77,5 +77,11 @@ public class CadastroFilme {
 		return f.get(0);
 	}
 	
+	public ArrayList<Filme> getFilmesPorTag(String tag){
+		
+	}
 	
+
+  
+
 }

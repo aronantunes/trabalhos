@@ -3,7 +3,6 @@ INDEX VERSION 1.127+C:\Users\Rafael\Documents\GitHub\trabalhos\.metadata\.plugin
 4146572984.index
 4044200546.index
 3349437070.index
-4036265825.index
 2589001729.index
 3527009751.index
 1570939741.index
