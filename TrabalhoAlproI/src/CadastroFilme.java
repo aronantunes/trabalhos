@@ -31,6 +31,7 @@ public class CadastroFilme {
 	}
 	
 	public Filme getFilmeTitulo(String titulo){
+		//FIXME
 		for(int i = 0; i < lista.size(); i++){
 			if(lista.get(i).getTitulo().equals(titulo))
 				return lista.get(i);
@@ -39,6 +40,7 @@ public class CadastroFilme {
 	}
 	
 	public ArrayList<Filme> getFilmeGenero(String genero){
+		//FIXME
 		ArrayList<Filme> listaGenero = new ArrayList<>();
 		for(int i = 0; i< lista.size(); i++){
 			if(lista.get(i).getGenero().equals(genero)){
@@ -59,42 +61,42 @@ public class CadastroFilme {
 		return listaAno;
 	}
 	
-	public Filme getFilmeMaisAvalicoes(){
-		ArrayList<Filme> f = new ArrayList<>();
-		f = (ArrayList<Filme>) lista.clone();
-		
-		//Bubblesort
-		boolean troca = true;
-		Filme filme = null;
-		while(troca){
-			troca = false;
-			for(int i = 0; i < f.size() - 1; i++){
-				if(f.get(i).getTotalAvaliacoes() < f.get(i + 1).getTotalAvaliacoes())
-					filme = f.get(i);
-					f.set(i, f.get(i+1));
-					f.set(i+1, filme);
-					troca = true;
-			}
-		}
-		
-		return f.get(0);
-	}
-	
-	public ArrayList<Filme> getFilmeByGeneroETag(String genero, String tag){
-		ArrayList<Filme> filmeByGeneroETag = new ArrayList<>();
-		ArrayList<String> tags;
-		if(lista.isEmpty()){
-			return null;
-		}else{
-			for(int i = 0; i < lista.size(); i++){
-				tags = lista.get(i).getTagsNome();
-				if(lista.get(i).getGenero().equals(genero) && tags.contains(tag)){
-					filmeByGeneroETag.add(lista.get(i));
-				}
-			}
-		}
-		return filmeByGeneroETag;
-	}
+//	public Filme getFilmeMaisAvalicoes(){
+//		ArrayList<Filme> f = new ArrayList<>();
+//		f = (ArrayList<Filme>) lista.clone();
+//		
+//		//Bubblesort
+//		boolean troca = true;
+//		Filme filme = null;
+//		while(troca){
+//			troca = false;
+//			for(int i = 0; i < f.size() - 1; i++){
+//				if(f.get(i).getTotalAvaliacoes() < f.get(i + 1).getTotalAvaliacoes())
+//					filme = f.get(i);
+//					f.set(i, f.get(i+1));
+//					f.set(i+1, filme);
+//					troca = true;
+//			}
+//		}
+//		
+//		return f.get(0);
+//	}
+//	
+//	public ArrayList<Filme> getFilmeByGeneroETag(String genero, String tag){
+//		ArrayList<Filme> filmeByGeneroETag = new ArrayList<>();
+//		ArrayList<String> tags;
+//		if(lista.isEmpty()){
+//			return null;
+//		}else{
+//			for(int i = 0; i < lista.size(); i++){
+//				tags = lista.get(i).getTagsNome();
+//				if(lista.get(i).getGenero().equals(genero) && tags.contains(tag)){
+//					filmeByGeneroETag.add(lista.get(i));
+//				}
+//			}
+//		}
+//		return filmeByGeneroETag;
+//	}
 	
 	
 }

@@ -14,35 +14,80 @@ public class App {
 	private static CadastroAvaliacao cadastroA = new CadastroAvaliacao();
 	
 	public static void main(String[] args){
-		//Avaliacao(Pessoa p, Filme f, int n, ArrayList<Tags> t, Date data)
+		//Avaliacao(Pessoa p, Filme f, int n, ArrayList<String> t, Date data, ArrayList<Filme> listaFilme, ArrayList<Pessoa> listaPessoa)
 		//Tag(String nome, Filme f)
 		//Pessoa(String nome, String email, char sexo, byte idade)
 		//Filme(String titulo, int ano, String genero)
 		
-		Filme f = new Filme("R",2015,"Comedia");
+		Filme f = new Filme("Vigadores",2015,"Ação");
 		cadastroF.add(f);
+		Filme f1 = new Filme("Vingadores: Era de Ultron",2015,"Ação");
+		cadastroF.add(f1);
 		
-		Tags t = new Tags("divertido",f);
-		Tags t1 = new Tags("f",f);
-		cadastroT.add(t);
-		cadastroT.add(t1);
 		
 		Integer idade = 19;
 		byte i = idade.byteValue();
-		Pessoa p = new Pessoa("Rafa", "asdas", 'M', i);
+		Pessoa p = new Pessoa("Rafael", "asdas", 'M', i);
 		cadastroP.add(p);
+		Integer idade1 = 19;
+		byte i1 = idade1.byteValue();
+		Pessoa p1 = new Pessoa("Aron", "asdas", 'M', i);
+		cadastroP.add(p1);
+		Integer idade2 = 19;
+		byte i2 = idade2.byteValue();
+		Pessoa p2 = new Pessoa("Felipe", "asdas", 'M', i);
+		cadastroP.add(p2);
 		
-		ArrayList<Tags> tss = new ArrayList<>();
-		tss.add(t);
-		tss.add(t1);
 		
+		ArrayList<String> StringTags = new ArrayList<>();
+		StringTags.add("divertido");
+		StringTags.add("engraçado");
 		Date d = new Date();
-		Avaliacao a = new Avaliacao(p,f,2,tss,d);
-		if(cadastroA.add(a))
-		f.setAvaliacao(a);
-		f.setTags(tss);
-		p.setAvaliacao(a);
 		
+		Avaliacao a = new Avaliacao(p,f,5,StringTags,d,cadastroF.getLista(), cadastroP.lista);
+		Avaliacao a1 = new Avaliacao(p1,f,5,StringTags,d,cadastroF.getLista(), cadastroP.lista);
+		Avaliacao a2 = new Avaliacao(p1,f1,5,StringTags,d,cadastroF.getLista(), cadastroP.lista);
+		Avaliacao a3 = new Avaliacao(p1,f1,5,StringTags,d,cadastroF.getLista(),cadastroP.lista);
+		Avaliacao a4 = new Avaliacao(p2,f1,5,StringTags,d,cadastroF.getLista(),cadastroP.lista);
+		cadastroA.add(a);
+		cadastroA.add(a1);
+		cadastroA.add(a2);
+		cadastroA.add(a3);
+		cadastroA.add(a4);
+		
+		//Funcionou getOcorrênciasTag
+		//System.out.println(cadastroA.getOcorrênciasTag("divertido"));
+		
+		//FuncionouPessoaQueMaisAvaliou
+		//System.out.println(cadastroA.getPessoaQueMaisAvaliou());
+		
+		//Funcionou mediaIndicador
+		//cadastroA.calculaMediaIndicadorFilme();
+		//System.out.println(f1.toString());
+		
+		//Funcionou getFilmeMaisAvaliado
+		//System.out.println(cadastroA.getFilmeMaisAvaliado());
+		
+		//Funcinou getFilmeByTagAndGenero
+//		ArrayList<Filme> listaFilmeTagGenero = cadastroA.getFilmeByTagAndGenero("divertido", "Ação");
+//		if(listaFilmeTagGenero.isEmpty())
+//			System.out.println("Nenhum filme com essa tag");
+//		else{
+//			for(int j = 0; j < listaFilmeTagGenero.size(); j++){
+//				System.out.println(listaFilmeTagGenero.get(j).getTitulo());
+//			}
+//		}
+		
+		//Funcionou getFIlmeByTag
+//		ArrayList<Filme> listaFilmeTag = cadastroA.getFilmeByTag("divertido");
+//		if(listaFilmeTag.isEmpty())
+//			System.out.println("Nenhum filme com essa tag");
+//		else{
+//			for(int j = 0; j < listaFilmeTag.size(); j++){
+//				System.out.println(listaFilmeTag.get(j).getTitulo());
+//			}
+//		}
+		//getFilmesPorTag();
 		menu();
 	}
 
@@ -92,7 +137,8 @@ public class App {
 	public static void getOcorrenciaPorTag() {
 		System.out.println("Informe a Tag:");
 		String tag = teclado.next();
-		System.out.println(cadastroT.getOcorrenciasTag(tag));
+		//Funcionou getOcorrênciasTag
+		System.out.println(cadastroA.getOcorrênciasTag(tag));
 		
 	}
 
@@ -126,10 +172,11 @@ public class App {
 	}
 	
 	public static void cadastroDeAvaliacao(){
-		//Avaliacao(Pessoa p, Filme f, int n, ArrayList<Tags> t, Date data)
+		//Avaliacao(Pessoa p, Filme f, int n, ArrayList<String> t, Date data, ArrayList<Filme> listaFilme, ArrayList<Pessoa> listaPessoa)
 		//Tag(String nome, Filme f)
 		//Pessoa(String nome, String email, char sexo, byte idade)
 		//Filme(String titulo, int ano, String genero)
+				
 		
 		System.out.println("Informe o seu nome: ");
 		String nome = teclado.next();
@@ -142,11 +189,11 @@ public class App {
 		System.out.println("Informe as tags: (5 tags por vez)");
 		String text = "";
 	
-		ArrayList<Tags> t = new ArrayList<>();
+		ArrayList<String> t = new ArrayList<>();
 		
-		for(int i = 0; i < 5; i++){	
+		for(int i = 0; i < 2; i++){	
 			text = teclado.next();
-			if(t.add(new Tags(text,f)))
+			if(t.add(text))
 				System.out.println("Cadastrado");
 		}
 		
@@ -154,27 +201,27 @@ public class App {
 		int nota = teclado.nextInt();
 		
 		Date data = new Date();
-		Avaliacao a = new Avaliacao(p,f,nota,t,data);
+		Avaliacao a = new Avaliacao(p,f,nota,t,data, cadastroF.getLista(),cadastroP.lista);
 		if(cadastroA.add(a))
 			System.out.println("Cadastrado com sucesso");
-		f.setAvaliacao(a);
-		f.setTags(t);
-		p.setAvaliacao(a);
+
 	}
 	
 	public static void getFilmeMelhorAvaliacao(){
-		System.out.println("Maior Avalicao: "+cadastroF.getFilmeMaisAvalicoes());
+		//Funcionou getFilmeMaisAvaliado
+		System.out.println(cadastroA.getFilmeMaisAvaliado());
 	}
 	
 	public static void getFilmesPorTag(){
 		System.out.println("Informe a Tag: ");
 		String tag = teclado.next();
-		ArrayList<Filme> f = cadastroT.getFilmesPorTag(tag);
-		if(f.isEmpty()){
-			System.out.println("Lista Vazia");
-		}else{
-			for(int i = 0; i < f.size(); i++){
-				System.out.println(f.get(i).getTitulo());
+		//Funcionou getFIlmeByTag
+		ArrayList<Filme> listaFilmeTag = cadastroA.getFilmeByTag(tag);
+		if(listaFilmeTag.isEmpty())
+			System.out.println("Nenhum filme com essa tag");
+		else{
+			for(int j = 0; j < listaFilmeTag.size(); j++){
+				System.out.println(listaFilmeTag.get(j).getTitulo());
 			}
 		}
 		
@@ -185,18 +232,21 @@ public class App {
 		String tag = teclado.next();
 		System.out.println("Informe o Genero: ");
 		String genero = teclado.next();
-		ArrayList<Filme> f = cadastroF.getFilmeByGeneroETag(genero, tag);
-		if(f.isEmpty()){
-			System.out.println("Não encontrado");
-		}else{
-			for(int i = 0; i < f.size(); i++){
-				System.out.println(f.get(i).getTitulo());
+		//Funcinou getFilmeByTagAndGenero
+		ArrayList<Filme> listaFilmeTagGenero = cadastroA.getFilmeByTagAndGenero(tag, genero);
+		if(listaFilmeTagGenero.isEmpty())
+			System.out.println("Nenhum filme com essa tag");
+		else{
+			for(int j = 0; j < listaFilmeTagGenero.size(); j++){
+				System.out.println(listaFilmeTagGenero.get(j).getTitulo());
 			}
 		}
 	}
 	
 	public static void getPessoaQueMaisAvaliou(){
-		Pessoa p = cadastroP.getPessoaComMaisAvaliacoes();
-		System.out.println(p.toString());
+		//FuncionouPessoaQueMaisAvaliou
+		System.out.println(cadastroA.getPessoaQueMaisAvaliou());
 	}
+	
+	
 }

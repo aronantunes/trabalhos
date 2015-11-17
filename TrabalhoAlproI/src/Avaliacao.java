@@ -5,17 +5,18 @@ import java.util.Date;
 public class Avaliacao {
 	 private Pessoa pessoa;
 	 private Filme filme;
-	 private int nota;
+	 private int indicador;
 	 private Date dataHora;
-	 private ArrayList<Tags> tags;
+	 private ArrayList<String> tags;
  
  
  
-	public Avaliacao(Pessoa p, Filme f, int n, ArrayList<Tags> t, Date data) {
+	public Avaliacao(Pessoa p, Filme f, int n, ArrayList<String> t, Date data, ArrayList<Filme> listaFilme,
+			ArrayList<Pessoa> listaPessoa) {
 		tags = new ArrayList<>();
-		this.setPessoa(p);
-		this.setFilme(f);
+		this.setPessoa(p, listaPessoa);
 		this.setNota(n);
+		this.setFilme(f, listaFilme);
 		this.setTags(t);
 		this.setDataHora(data);
 		
@@ -30,30 +31,26 @@ public class Avaliacao {
 		return dataHora;
 	}
 
-	public void setPessoa(Pessoa p){
-		boolean exist = false;
-		ArrayList<Pessoa> l = CadastroPessoa.lista;
-		for(int i = 0; i < l.size(); i++){
-			if(l.get(i).equals(p))
-				exist = true;
+	public void setPessoa(Pessoa p, ArrayList<Pessoa> listaPessoas){
+		if(listaPessoas.isEmpty()){
+			System.out.println("Pessoa não cadastrada");
+		}else{
+			if(listaPessoas.contains(p)){
+				this.pessoa = p;
+			}else{
+				System.out.println("Pessoa não existe");
+			}
 		}
-		if(!exist)
-			this.pessoa = p;
 	}
 	
 	public Pessoa getPessoa(){
 		return pessoa;
 	}
 	
-	public void setFilme(Filme f){
-		boolean exist = false;
-		ArrayList<Filme> l = CadastroFilme.lista;
-		for(int i = 0; i < l.size(); i++){
-			if(l.get(i).equals(f))
-				exist = true;
-		}
-		if(!exist)
+	public void setFilme(Filme f, ArrayList<Filme> listaFilme){
+		if(listaFilme.contains(f)){
 			this.filme = f;
+		}
 	}
 	
 	public Filme getFilme(){
@@ -64,27 +61,20 @@ public class Avaliacao {
 		if(n <= 0 || n > 5){
 			return false;
 		}else{
-			this.nota = n;
+			this.indicador = n;
 			return true;
 		}
 	}
 	
 	public int getNota(){
-		return nota;
+		return indicador;
 	}
 	
-	public void setTags(ArrayList<Tags> t){
-		System.out.println(t.size());
-		if(!t.isEmpty()){
-			for(int i = 0; i < t.size(); i++){
-				tags.add(t.get(i));
-			}
-		}
-			
-		
+	public void setTags(ArrayList<String> t){
+		this.tags = t;
 	}
 	
-	public ArrayList<Tags> getTags(){
+	public ArrayList<String> getTags(){
 		return tags;
 	}
 	
@@ -93,7 +83,7 @@ public class Avaliacao {
 		Pessoa p = this.getPessoa();
 		Filme f = this.getFilme();
 		int nota = this.getNota();
-		ArrayList<Tags> t = this.getTags();
+		ArrayList<String> t = this.getTags();
 		String notaS = "";
 		switch(nota){
 			case 1:

@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+
+public class CadastroAvaliacao {
+
+	public static ArrayList<Avaliacao> lista;
+
+	public CadastroAvaliacao() {
+		lista = new ArrayList<>();
+	}
+
+	public boolean add(Avaliacao a) {
+		if(lista.isEmpty()){
+			lista.add(a);
+			return true;
+		}else{
+			if (lista.contains(a)) {
+				return false;
+			}else{
+				lista.add(a);
+				return true;
+			}
+		}
+		
+	}
+	
+	public static void getFilmeByTag(){
+		
+	}
+
+	
+
+}
