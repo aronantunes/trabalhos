@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=
+comment0.target=CadastroFilme()
+comment1.params=f
+comment1.target=boolean\ add(Filme)
+comment2.params=
+comment2.target=int\ getTamanho()
+comment3.params=
+comment3.target=java.util.ArrayList\ getLista()
+comment4.params=titulo
+comment4.target=Filme\ getFilmeTitulo(java.lang.String)
+comment5.params=genero
+comment5.target=java.util.ArrayList\ getFilmeGenero(java.lang.String)
+comment6.params=ano
+comment6.target=java.util.ArrayList\ getFilmeAno(int)
+numComments=7

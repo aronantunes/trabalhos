@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=data
+comment0.target=void\ setDataHora(java.util.Date)
+comment1.params=
+comment1.target=java.util.Date\ getDataHora()
+comment2.params=n
+comment2.target=boolean\ setNota(int)
+comment3.params=
+comment3.target=int\ getNota()
+comment4.params=t
+comment4.target=void\ setTags(java.util.ArrayList)
+comment5.params=
+comment5.target=java.util.ArrayList\ getTags()
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

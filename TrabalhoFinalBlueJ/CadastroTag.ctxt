@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=CadastroTag()
+comment1.params=t
+comment1.target=boolean\ add(Tags)
+comment2.params=t
+comment2.target=Tags\ getTag(Tags)
+comment3.params=tag
+comment3.target=java.util.ArrayList\ getFilmesPorTag(java.lang.String)
+comment4.params=tag
+comment4.target=int\ getOcorrenciasTag(java.lang.String)
+numComments=5

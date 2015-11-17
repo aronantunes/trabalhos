@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=nome\ f
+comment0.target=Tags(java.lang.String,\ Filme)
+comment1.params=f
+comment1.target=boolean\ setFilme(Filme)
+comment2.params=
+comment2.target=java.util.ArrayList\ getFilmes()
+comment3.params=
+comment3.target=int\ getTotalFilmes()
+comment4.params=nome
+comment4.target=void\ setTagNome(java.lang.String)
+comment5.params=
+comment5.target=java.lang.String\ getNome()
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7
